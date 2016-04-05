@@ -1,3 +1,6 @@
+#Ruby 
+#Code Challenge for The Firehose Project
+
 #prompt user for a number of pattern they want to see
 puts "How many digits of pattern you want to see?"
 digits =gets.to_i
