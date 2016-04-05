@@ -1,0 +1,19 @@
+#prompt user for a number of pattern they want to see
+puts "How many digits of pattern you want to see?"
+digits =gets.to_i
+
+n = 0
+
+while n < digits
+  n = n+1
+#foobar logic:    
+    if n % 3 == 0 && n % 5 == 0
+        puts "foobar"
+    elsif n % 3 == 0
+        puts "foo"
+    elsif n % 5 == 0 
+        puts "bar"
+    else
+        puts "#{n}"
+  end
+end
