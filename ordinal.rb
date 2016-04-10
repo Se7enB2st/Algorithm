@@ -1,3 +1,5 @@
+#Ordinal coding challenge for The Firehose Project:
+
 puts "Enter a number here:"
 
 num = gets.to_i
