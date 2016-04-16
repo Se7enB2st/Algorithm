@@ -1,4 +1,4 @@
-#Ordinal coding challenge for The Firehose Project:
+#Ordinal coding challenge
 
 puts "Enter a number here:"
 
