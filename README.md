@@ -1,4 +1,3 @@
-# Firehose
-The Firehose Project BootCamp
+#Algorithm Problems
 
-My works from The Firehose Project 
+Algorithm problem I have complete and currently working on.
