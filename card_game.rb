@@ -9,9 +9,11 @@ class Card
   def show_card
     puts "#{@rank} of #{@suit}."
   end
+
+  def self.random_card
+    Card.new(rand(10), :spades)
+  end
 end
 
-card = Card.new(10, :spades)
-card.rank = 7
-card.suit = "club"
+card = Card.random_card
 card.show_card
