@@ -7,11 +7,11 @@ class Card
   end
 
   def show_card
-    puts "#{@rank} of #{@suit}."
+    puts "#{self.rank} of #{self.suit}."
   end
 
   def self.random_card
-    Card.new(rand(10), :spades)
+    Card.new(rand(1 ..10), :spades)
   end
 end
 
