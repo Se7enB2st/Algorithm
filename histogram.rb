@@ -1,4 +1,5 @@
-#Given an string, sort the string by the amount of word appear in the string
+#Histogram 
+#Rule: Given an string, sort the string by the amount of word appear in the string
 
 puts "write down an string"
 string = gets.chomp
