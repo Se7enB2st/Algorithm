@@ -1,3 +1,8 @@
-#Algorithm Problems
+Algorithm
 
-Algorithm problem I have complete and currently working on.
+“In algorithms, as in life, persistence usually pays off.” 
+― Steven S. Skiena
+
+Algorithm problems that I have completed.
+
+
