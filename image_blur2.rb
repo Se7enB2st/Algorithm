@@ -4,16 +4,31 @@
 #Running the blur transformation causes any 1 in the image to cause the pixel to the left, right, above and below to become a 1.
 
 class Image
-  attr_accessor :data
+  attr_accessor :image
 
-  def initialize(array)
-    @data = array
+  def initialize(image)
+    @image = image
   end
 
   def output_image
-    @data.each do |row|
+    @image.each do |row|
       puts row.join
     end
+  end
+
+  #Build a new image and return it
+  #So far, no transformation
+  def transform
+    one_pixel = []
+    @image.each_with_index do |row, row_index|
+      row.each_with_index do |pixel, col_index|
+        if pixel == 1
+
+        end
+      end
+    end
+
+    return Image.new(@image)
   end
 end
 
@@ -22,5 +37,13 @@ image = Image.new([
   [0, 1, 0, 0],
   [0, 0 ,0, 1],
   [0, 0, 0, 0]
-])
-image.output_image
+  ])
+  afterImage =  image.transform
+  afterImage.output_image
+  # after_transform = Image.new([
+  #    [0, 1, 0, 0],
+  #    [1, 1, 1, 1],
+  #    [0, 1 ,1, 1],
+  #    [0, 0, 0, 1]
+  #  ])
+
