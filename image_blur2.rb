@@ -18,12 +18,12 @@ class Image
   def blur
     #Create a copy of image
     @new_image = Marshal.load(Marshal.dump(@image))
-    #Loop through image, if find a pixel equal to 1 change new image
+    #Loop through image, find the "1 pixel"
     @image.each_with_index do |row, row_number|
       row.each_with_index do |pixel, col_number |
         if pixel == 1
-    #Need explaining here ...
-          @new_image[row_number - 1][col_number] = 1 unless row_number == 0 #Up
+          #Blur the pixel that are top,down,left,right of the "1 Pixel" to 1
+          @new_image[row_number - 1][col_number] = 1 unless row_number == 0 #Top
           @new_image[row_number + 1][col_number] = 1 unless (row_number + 1) >= @image.length #Down
           @new_image[row_number][col_number - 1] = 1 unless col_number == 0 #Left
           @new_image[row_number][col_number + 1] = 1 unless (col_number + 1) >= row.length #Right
