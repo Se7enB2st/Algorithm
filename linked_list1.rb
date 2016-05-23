@@ -10,20 +10,33 @@ class LinkedListNode
     @value = value
     @next_node = next_node
   end
-
-  # node3.print_value
-  def print_values
-    print "#{self.value} --> "
-    if self.next_node != nil
-      self.next_node.print_values
-    else
-      print "nil\n"
-    end
-  end
-
 end
 
-# print_values(node3)
+# data structure we are using to help us reverse the linked list
+class Stack
+  attr_reader :data
+
+  def initialize
+    @data = nil
+  end
+
+  # push a value onto the stack
+  def push(value)
+    @data = LinkedListNode.new(value, @data)
+  end
+
+  # pop top item off the stack and return the value to the user
+  def pop
+    # store top node value in variable
+    node_value = @data.value
+    # overwrite top node with next node in stack AKA pop top node off stack
+    @data = @data.next_node
+    # return top node value
+    return node_value
+  end
+end
+
+# recursive function prints node values in linked list
 def print_values(list_node)
   if list_node
     print "#{list_node.value} --> "
@@ -34,48 +47,27 @@ def print_values(list_node)
   end
 end
 
-def reverse_list(list)
-  # ADD CODE HERE
-
-  while list
-      # ADD CODE HERE
-      list = list.next_node
+def reverse_list(list)            # 12 -> 99 -> 37 -> nil
+  # create stack
+  stack = Stack.new
+  # loop through linked list and push each node onto the stack
+  while list != nil
+    # push node on to stack
+    stack.push(list.value)
+    # jump to next node in original linked list
+    list = list.next_node
   end
-
-  # ADD CODE HERE
+  stack.data
 end
 
-
-class Stack
-    attr_reader :data
-
-    def initialize
-        @data = nil
-    end
-
-    # Push a value onto the stack
-    def push(value)
-        # IMPLEMENT ME!
-    end
-
-    # Pop an item off the stack.
-    # Remove the last item that was pushed onto the
-    # stack and return the value to the user
-    def pop
-        # I RETURN A VALUE
-    end
-
-end
-
+# building 3 individual nodes and linking them to each other
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
 node3 = LinkedListNode.new(12, node2)
 
-node3.print_values(node3)
 
+print_values(node3)             # 12 -> 99 -> 37 -> nil
 puts "-------"
-
 revlist = reverse_list(node3)
-
-print_values(revlist)
+print_values(revlist)           # 37 -> 99 -> 12 -> nil
 
