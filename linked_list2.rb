@@ -1,4 +1,4 @@
-#The Firehose Project - Algorithm Problem: Linked List 1
+#The Firehose Project - Algorithm Problem: Linked List 2
 
 #A LinkedList is a node that has a specific value attached to it (which is sometimes called a payload),
 #and a link to another node (or nil if there is no next item).
@@ -14,31 +14,6 @@ class LinkedListNode
   end
 end
 
-# data structure we are using to help us reverse the linked list
-class Stack
-  attr_reader :data
-
-  def initialize
-    @data = nil
-  end
-
-  # push a value onto the stack
-  def push(value)
-    @data = LinkedListNode.new(value, @data)
-  end
-
-  # pop top item off the stack and return the value to the user
-  def pop
-    # store top node value in variable
-    node_value = @data.value
-    # overwrite top node with next node in stack AKA pop top node off stack
-    @data = @data.next_node
-    # return top node value
-    return node_value
-  end
-end
-
-# recursive function prints node values in linked list
 def print_values(list_node)
   if list_node
     print "#{list_node.value} --> "
@@ -49,26 +24,28 @@ def print_values(list_node)
   end
 end
 
-def reverse_list(list)            # 12 -> 99 -> 37 -> nil
-  # create stack
-  stack = Stack.new
-  # loop through linked list and push each node onto the stack
-  while list != nil
-    # push node on to stack
-    stack.push(list.value)
-    # jump to next node in original linked list
-    list = list.next_node
+def reverse_list(list, previous=nil)     # list 12 -> 99 -> 37 -> nil
+  # store current_head value
+  current_head = list.next_node
+  # change the current nodes next link to previous node (initially nil)
+  list.next_node = previous
+  # if the current_head does not equal nil, utilize recursive reverse_list
+  if current_head
+    # set the current node to be the next node until the node value is nil
+    reverse_list(current_head, list)
+  else
+    # return reversed list
+    list
   end
-  stack.data
 end
 
-# building 3 individual nodes and linking them to each other
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
 node3 = LinkedListNode.new(12, node2)
 
+print_values(node3)
+print_reverse = reverse_list(node3)
+print_values(print_reverse)
 
-print_values(node3)             # 12 -> 99 -> 37 -> nil
-puts "-------"
-revlist = reverse_list(node3)
-print_values(revlist)           # 37 -> 99 -> 12 -> nil
+
+
