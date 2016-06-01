@@ -27,3 +27,50 @@ def luhn(cardNumber)
 end
 
 luhn(4194560385008504) #Test number
+
+#Solution 2:
+module Luhn
+  
+  def self.is_valid?(cardNumber)
+    integer_array = Luhn.card_number_to_integer_array(cardNumber)
+    integer_array = integer_array.reverse
+    doubled = Luhn.double_every_other(integer_array)
+    subtracted_9 = Luhn.subtract_9_if_greater_than_10(doubled)
+    summed_numbers = Luhn.sum_all_numbers(subtracted_9)
+    result = Luhn.check_if_valid_number(summed_numbers)
+
+    return result
+
+  def self.card_number_to_integer_array(number_string)
+    number_string.to_s.split("").map{|num| num.to_i}
+  end
+
+  def self.double_every_other(nums)
+    result = []
+    nums.each_with_index do |num, index|
+      index.odd? ? result << num * 2 : result << num
+    end
+    result
+  end
+  
+  def self.subtract_9_if_greater_than_10(nums)
+    result = []
+    nums.each do |num|
+      num >= 10 ? result << num - 9 : result << num
+    end
+    result
+  end
+
+  def self.sum_all_numbers(numbers)
+    numbers.inject(:+)
+  end
+
+  def self.check_if_valid_number(number)
+    if (number % 10) == 0
+      return true
+    else
+      return false
+    end
+  end
+  
+end
