@@ -8,16 +8,39 @@
 #Build a method called iterative_fib that builds a table of Fibonacci numbers one-by-one like we walked you through earlier.
 #After you build the entire sequence of numbers up to n digits, just return the last value.
 
-#Iterative method
-def iterative_fib(num)
-  array = [0,1]
-  while array.length != num-1
-    x = array[array.length-1]
-    y = array[array.length-2]
-    result = x + y
-    array << result
+#Recursive method
+def recursive_fib(num)
+  if num == 0
+    return num
+  elsif num ==1
+    return 1
+  else
+    return (recursive_fib(num-1))+(recursive_fib(num-2))
   end
-  return array.last
 end
 
-puts iterative_fib(10)
+#Iterative method
+def iterative_fib(num)
+  return 0 if num == 0
+  f1 = 0
+  f2 = 1
+  (num - 2).times do
+    sum = f1 + f2    # sum = 1
+    f1 = f2          # f1 = 1
+    f2 = sum         # f2 = 1
+  end
+  f1 + f2
+end
+
+puts "Recursive: #{recursive_fib(5)}"
+puts  "----------------------------"
+puts "Iterative: #{iterative_fib(5)}"
+
+#Test the how fast each method takes to solve the problem
+require 'benchmark'
+num = 35
+Benchmark.bm do |x|
+  x.report("recursive_fib") { recursive_fib(num) }
+  x.report("iterative_fib")  { iterative_fib(num)  }
+end
+
