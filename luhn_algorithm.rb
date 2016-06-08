@@ -9,24 +9,30 @@
 #Step 4 - Sum the digits.
 #Step 5 - If the sum is divisible by 10 it's a valid number. Otherwise it's invalid.
 
-def luhn(cardNumber)
-  sum = 0 #Set Sum to 0 at the start
-  nums = cardNumber.to_s.split("") #Break the credit card into it's individual digits
-  nums.each_with_index do |digit, index| #Loop through every digit_with_index and add the digit to the sum
-    sum += if (index % 2 == 0) #If index is divisible by two do the
-             digit.to_i * 2 >= 10 ? digit.to_i*2-9 : digit.to_i*2 #Ternary: If digits is greater or equal to ten, mulitply digits by 2
-           else
-             digit.to_i #Else return the digit
-           end
+#Solution 1:
+class  Luhn
+  def self.is_valid?(number)
+    self.new.is_valid?(number)
   end
-  if (sum % 10) == 0# If Sum is divisible by 10, puts "valid", else return "invalid"
-    puts "valid"
-  else
-    puts "invalid"
+
+  def is_valid?(number)
+    sum = 0 #Set Sum to 0 at the start
+    nums_array = number.to_s.split("").reverse #Break the credit card into it's individual digits and reverse the list
+    nums_array.each_with_index do |digit, index| #Loop through every digit_with_index and add the digit to the sum
+      if (index % 2 != 0) #Every other number starting with the first in
+        sum += digit.to_i * 2 >= 10 ? digit.to_i*2-9 : digit.to_i*2 #Ternary: If digits is greater or equal to 10, mulitply digits by 2 and subtract 9, else mulitply by 2
+      else
+        sum += digit.to_i #Else return the digit
+      end
+    end
+
+    if (sum % 10) == 0# If Sum is divisible by 10, is "valid", else it is "invalid"
+      return true
+    else
+      return false
+    end
   end
 end
-
-luhn(4194560385008504) #Test number
 
 #Solution 2:
 module Luhn
