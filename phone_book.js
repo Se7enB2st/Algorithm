@@ -1,4 +1,4 @@
-#Create a phone book - Codecademy 
+//Create a phone book
 
 var bob = {
     firstName: "Bob",
