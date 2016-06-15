@@ -1,4 +1,4 @@
-#Cash Register - Codecademy
+//Create a cash register
 
 function StaffMember(name,discountPercent){
     this.name = name;
