@@ -22,8 +22,6 @@ def collatz_sequence(range) #takes range and outputs number with greatest
 
     next if highest_length > length
     highest_length,start_num = length,n
-    #why is next method below not working?
-    #length > highest_l ? highest_l,start_n = length,n : next
   end
 
   p "#{start_num} produced the longest chain of collatz values with #{highest_length} length"
