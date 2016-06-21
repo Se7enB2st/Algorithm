@@ -23,3 +23,20 @@ while n < digits
         puts "#{n}"
   end
 end
+
+#Solution 2:
+def fizzbuzz(num)
+  i = 0
+  while i < num
+  i += 1
+    if i % 3 == 0 && i % 5 == 0
+      puts "FizzBuzz"
+    elsif i % 5 == 0
+      puts "Buzz"
+    elsif i % 3 == 0
+      puts "Fizz"
+    else
+      puts i
+    end
+  end
+end
