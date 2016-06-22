@@ -4,7 +4,7 @@
 	    #1. only encrypt string
 	    #2. set up alphabet data
 	    #3. find the offset 
-    	#4. if offset is nil, calculate distance from z and traverse from beginning
+            #4. if offset is nil, calculate distance from z and traverse from beginning
 	    #5. upcase/downcase
 
 class String
