@@ -86,3 +86,29 @@ end
 list = [55, 0, -25, 38, 99, -77]
 
 p list.quicksort # [-77, -25, 0, 38, 55, 99]
+
+
+#Merge Sort: Time Complexity of O(n log(n)) for all cases but have space Complexity of O(n).
+
+def merge_sort(list) #spliting part
+	return list if list.length <= 1 #check if list is already sorted
+
+	mid = (list.length / 2).floor #set a mid point for array, round the number down if array size is odd
+	left = merge_sort(list[0..mid - 1]) #split left array to single number array recursiely without the mid point
+	right = merge_sort(list[mid..list.length]) #split right array to single number array recursiely with the mid point
+	merge(left, right) #merging recursiely
+end
+
+def merge(right, left) #sorting part
+	if left.empty? #if left or right array is empty this mean array is finish sorting
+		return right
+	elsif right.empty?
+		return left
+	elsif left.first < right.first				     #1. if left array's first number is greater than right array's first number
+		[left.first] + merge(left[1..left.length], right)    #2. create array by adding first number of left array
+	else 					 		     #3. plus recursiely calling merge method on the rest of left array
+		[right.first] + merge(left, right[1..right.length])  #4. plus the right array
+	end                                            		     #5. vise-versa if right array's first number is greater
+end
+
+p merge_sort([-22,9,0,12,77,45,-55]) #[-55, -22, 0, 9, 12, 45, 77]
