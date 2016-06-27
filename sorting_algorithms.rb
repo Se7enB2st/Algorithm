@@ -1,6 +1,5 @@
 #Different Sorting Algorithm implementation in Ruby
 
-
 #Selection Sort: Time Complexity of O(n^2)
 
 def selection_sort(list)
@@ -64,3 +63,26 @@ def bubble_sort(list)
 end
 
 p bubble_sort([0,-23,-77,35,9,88]) # [-77, -23, 0, 9, 35, 88]
+
+
+#Quicksort: Time Complexity of O(n^2) for worst case O(n log(n)) for best case
+#This method require knowledge of Ruby Metaprogramming
+
+class Array
+	def quicksort
+		return [] if empty?
+
+		# [55, 0, -25, 38, 99, -77]
+		# 1. pull out an random pivot from the array
+		# 2. split the array into 2 random arrays: right and left without the pivot
+		# 3. sort each array
+		# 4. return two splat arguments which call the quicksort method recursivly
+		pivot = delete_at(rand(size))
+		left, right = partition(&pivot.method(:>)) # (:<) will change to reverse sort
+		return *left.quicksort, pivot, *right.quicksort # pivot have to be in middle!
+	end                                                     # flip left and right will reverse the sorting order also
+end
+
+list = [55, 0, -25, 38, 99, -77]
+
+p list.quicksort # [-77, -25, 0, 38, 55, 99]
