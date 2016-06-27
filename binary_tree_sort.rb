@@ -1,4 +1,5 @@
 #Binary Tree Sort - Create a binary tree and sort it.
+#Binary Tree Search: Tree have to be sorted first, and have Time Complexity of O(log(n))
 
 #1.The method you implement will take in an array, build a tree from the array.
 #2.Then go through the tree from left to right and sorted.
