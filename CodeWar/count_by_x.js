@@ -1,3 +1,5 @@
+// Count by X - Codewars 
+
 //Create a function with two arguments that will return a list of length (n) with multiples of (x).
 //Example: countBy(2,5) === [2,4,6,8,10]
 
