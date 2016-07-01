@@ -3,7 +3,7 @@
 
 #Stack Approach:
 def balanced_parentheses(string)
-  strings = string.scan(/\W/) #only check non world characters
+  strings = string.scan(/\W/) #pulling out non-word characters
   parentheses = { '{' => '}', '[' => ']', '(' => ')' } #match parentheses in hash
   stack = []
 
@@ -19,7 +19,7 @@ def balanced_parentheses(string)
     end
   end
 
-  stack.empty? ? true : false #empty means all parentheses find their match else if it unbalanced
+  stack.empty? ? true : false #empty means all parentheses find their match else it is unbalanced
 end
 
 p balanced_parentheses("H[el(lo, e{very} one!)]") #true
