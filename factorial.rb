@@ -13,9 +13,14 @@ end                                                   #Keep going until the enti
 
 module Factorial
   def self.of(number)
-    number.zero? ? 1 : number * self.of(number - 1) unless number == nil # EX) 4*3*2*1 = 24
+    if number == 1 || number == 0
+      1
+    else
+      number * self.of(number - 1) unless number == nil 
+    end
   end
 end
+
 
 #RSpec tests:
 
