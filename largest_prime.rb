@@ -29,6 +29,15 @@ class LargestPrimeFactor
 
 end
 
+def largest_prime_factor(num)
+  prime = num
+  (2..Math.sqrt(num).to_i).each do |s| 
+    break if prime <= s 
+    prime /= s while (prime > s && prime % s == 0)
+  end
+  prime
+end
+
 #RSpec test:
 
 require 'spec_helper'
