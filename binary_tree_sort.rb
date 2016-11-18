@@ -36,14 +36,11 @@ end
 
 
 def current_data(payload)
-
-	current_data= nil #At first current data is nil
-
-	while payload.any?
-		current_data = create_tree(current_data,payload.shift) #remove the first node from array 
-	end
-
-	return inorder_traversal(current_data) #current_data = 1 4 6 7 9 10 14
+  current_data= nil #At first current data is nil
+  while payload.any?
+    current_data = create_tree(current_data,payload.shift) #remove the first node from array 
+  end
+  return inorder_traversal(current_data) #current_data = 1 4 6 7 9 10 14
 end
 
 seven = BinaryTree.new(7, nil, nil)
