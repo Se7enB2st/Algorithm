@@ -17,26 +17,21 @@ end
 #If payload < current node.payload goes to left
 #if payload > current node.payload goes to right
 def create_tree(current_data,payload)
-
-	return BinaryTree.new(payload,nil,nil) if current_data == nil
-
-	if payload < current_data.payload
-		current_data.left_child = create_tree(current_data.left_child, payload)
-	else
-		current_data.right_child = create_tree(current_data.right_child, payload)
-	end
-
-	return current_data
-
+  return BinaryTree.new(payload,nil,nil) if current_data == nil
+  if payload < current_data.payload
+    current_data.left_child = create_tree(current_data.left_child, payload)
+  else
+    current_data.right_child = create_tree(current_data.right_child, payload)
+  end
+  return current_data
 end
 
 #Turn Sorted Tree into an string
 def inorder_traversal(current_data, payload=[]) #Currently payload is empty
-
-	return nil if current_data == nil
-	inorder_traversal(current_data.left_child,payload) #left side of tree
-	print current_data.payload.to_s + " "
-	inorder_traversal(current_data.right_child,payload) #right side of tree
+  return nil if current_data == nil
+  inorder_traversal(current_data.left_child,payload) #left side of tree
+  print current_data.payload.to_s + " "
+  inorder_traversal(current_data.right_child,payload) #right side of tree
 end
 
 
