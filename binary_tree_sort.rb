@@ -5,13 +5,12 @@
 #2.Then go through the tree from left to right and sorted.
 
 class BinaryTree
-	attr_accessor :payload,:left_child,:right_child
-
-	def initialize(payload,left_child,right_child)
-		self.payload = payload
-		self.left_child = left_child
-		self.right_child = right_child
-	end
+  attr_accessor :payload,:left_child,:right_child
+  def initialize(payload,left_child,right_child)
+    self.payload = payload
+    self.left_child = left_child
+    self.right_child = right_child
+  end
 end
 
 #Creating a Binary Tree and Sort it
