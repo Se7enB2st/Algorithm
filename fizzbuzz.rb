@@ -14,14 +14,14 @@ while n < digits
   n = n+1
 #fizzbuzz logic:    
     if n % 3 == 0 && n % 5 == 0
-        puts "FizzBuzz"
+      puts "FizzBuzz"
     elsif n % 3 == 0
-        puts "Fizz"
+      puts "Fizz"
     elsif n % 5 == 0 
-        puts "Buzz"
+      puts "Buzz"
     else
-        puts "#{n}"
-  end
+      puts "#{n}"
+    end
 end
 
 #Solution 2:
